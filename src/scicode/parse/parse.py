@@ -7,12 +7,14 @@ import re
 import h5py
 import scipy
 import numpy as np
+import os
 from sympy import Symbol
 from datasets import load_dataset
 
 OrderedContent = list[tuple[str, str]]
 
-H5PY_FILE = "eval/data/test_data.h5"
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+H5PY_FILE = os.path.join(PROJECT_ROOT, "eval", "data", "test_data.h5")
 
 def extract_function_name(function_header):
     pattern = r'\bdef\s+(\w+)\s*\('
